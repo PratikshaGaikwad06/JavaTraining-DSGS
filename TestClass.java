@@ -25,8 +25,36 @@ public class TestClass {
 //		stud1.changeAddress( "Ahemadnagar",42343.54f, 32564.56f);
 		
 		
-		Student s = new Student(11, "Pratiksha Gaikwad", "Aurangabad", 52000.0f, "Medium");
-		s.humanActivities(null);
+		//Parent Class - Human
+		//Child Class - Student, Teacher
+		//child of child class - GraduateStudent
+		System.out.println("Using Human Class Object : ");
+		Human human = new Human("Pratiksha Gaikwad", "Aurangabad", 22);
+		human.displayInfo();
+		
+		System.out.println("\n===========================================\n");
+		
+		System.out.println("Using Student Class Object : ");
+		Student s = new Student(20190617,"Pratiksha Gaikwad", "Aurangabad", 22, 120000.0f);
+		s.displayInfo();
+		s.displayStudentRollNumber();
+		
+		System.out.println("\n===========================================\n");
+		
+		System.out.println("Using Teacher Class Object : ");
+		Teacher t = new Teacher("Walmik Gaikwad", "Nagpur", 22, "Maths");
+		t.displayInfo();
+		t.displaySubject();		
+		System.out.println("\n===========================================\n");
+		
+		System.out.println("Using GraduateStudent Class Object : ");
+		GraduateStudent gs = new GraduateStudent(20190617,"Pratiksha Gaikwad", "Aurangabad", 22, 120000.0f, "Information Technology");
+		gs.displayInfo();
+		gs.displayStudentRollNumber();
+		gs.displayFieldOfStudy();
+		
+		System.out.println("\n===========================================");
+		
 	}
 
 }
@@ -62,35 +90,73 @@ class College{
 }
 
 class Human{
-	private String humanColor;
-	private String humanActivity;
+	private String name;
+	private String address;
+	private int age;
 	
-	Human(String color){
-		this.humanColor = color;
+	Human(String name, String address, int age){
+		this.name = name;
+		this.address = address;
+		this.age = age;
 	}
-	void humanActivities(String humanActivity) {
-		this.humanActivity = humanActivity;
+
+	public String getName() {
+		return name;
 	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	 public void displayInfo() {
+	    System.out.println("Name: " + name);
+	    System.out.println("Address: " + address);
+	    System.out.println("Age: " + age);
+	 }
+	
+	//4 types of function
+		void changeAddress(String address){ 
+			this.address  = address;
+			System.out.println("changing address  ....new address of " + name +" is " + address);
+		}
+		void printStudentName(){ 
+			System.out.println("Name of student : " + name);
+		}
+		// other two in student class
+	
+	
+		
 }
+
+//Student is a Human --> Single 
 class Student extends Human{
 
 	private int rollNo;
-	private String studName;
-	private String address;
 	private float fees;
 	
-	Student(int rollNo, String studName, String address, float fees, String colorOfStudent){
-		super(colorOfStudent); 
+	Student(int rollNo, String name, String address, int age, float fees){
+		super(name, address, age); 
 		this.rollNo = rollNo;
-		this.studName = studName;
-		this.address = address;
 		this.fees = fees;
 		
 	}
-	void humanActivities(String humanActivites) {
-		super.humanActivities(humanActivites);
-		System.out.println("");
-	}
+	
 	
 	public int getRollNo() {
 		return rollNo;
@@ -98,24 +164,17 @@ class Student extends Human{
 	public void setRollNo(int rollNo) {
 		this.rollNo = rollNo;
 	}
-	public String getStudName() {
-		return studName;
-	}
-	public void setStudName(String studName) {
-		this.studName = studName;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
+
 	public float getFees() {
 		return fees;
 	}
 	public void setFees(float fees) {
-		this.fees = fees;
+		this.fees = fees; 
 	}
+	
+	public void displayStudentRollNumber() {
+        System.out.println("Roll Number: " + rollNo);
+    }
 //	public Student(int rollNo, String studName, String address, float fees) {
 //		
 //		this.rollNo = rollNo;
@@ -130,23 +189,14 @@ class Student extends Human{
 //		System.out.println(fees + "\n");
 //	}
 	
-	//4 types of function
-	void changeAddress(String address){ 
-		this.address  = address;
-		System.out.println("changing address  ....new address of " + studName +" is " + address);
-	}
-	void printStudentName(){ 
-		System.out.println("Name of student : " + studName);
-	}
 	float feesOfStudent() {
-		System.out.println("Fees of " + studName +  " : " + fees);
+		System.out.println("Fees of " + super.getName() +  " : " + fees);
 		return fees;
 	}
 	float feesForStudentForYears(int years) {
-		System.out.println("Fees of " + studName +  " for " + years + " years is " + fees*years);
+		System.out.println("Fees of " + super.getName() +  " for " + years + " years is " + fees*years);
 		return fees * years;
 	}
-	
 	
 	//function overloading 
 	/*
@@ -170,25 +220,42 @@ class Student extends Human{
 		System.out.println("changing address  ....new address of " + studName +" is " + address + " lattitude : " + lattitude + " longitude : " + longitude);
 	}*/
 	
-	
-	
-	
-	
 
 }
 
-class EngineeringStudent extends Student{
-	private int enrollId;
+//GraduateStudent is a Student who is a Human --> Multilevel
+class GraduateStudent extends Student{
+	private String major;
 	
-	EngineeringStudent(int rollNo, String studName, String address, float fees,String colorOfStudent, int enrollId){
-		super(rollNo,  studName,  address,  fees,  colorOfStudent);
-		this.enrollId = enrollId;
+	public String getMajor() {
+		return major;
+	}
+
+	public void setMajor(String major) {
+		this.major = major;
+	}
+
+	GraduateStudent(int rollNo, String name, String address, int age, float fees,  String major){
+		super(rollNo,  name, address,  age,  fees  );
+		this.major = major;
 	}
 	
-	void humanActivities(String humanActivites) {
-		super.humanActivities(humanActivites);
-		System.out.println("enrollId : "  + enrollId);
-	}
-	
-	
+	 public void displayFieldOfStudy() {
+	        System.out.println("Field of Study: " + major);
+	    }
+		
+}
+
+// Teacher and Student are humans --> Hierarchical
+class Teacher extends Human{
+	private String subject;
+
+    Teacher(String name, String address, int age, String subject) {
+        super(name, address, age);
+        this.subject = subject;
+    }
+
+    public void displaySubject() {
+        System.out.println(super.getName() + " teaches " + subject );
+    }
 }
