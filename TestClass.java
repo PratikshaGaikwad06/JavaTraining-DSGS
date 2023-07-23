@@ -53,7 +53,6 @@ public class TestClass {
 		gs.displayStudentRollNumber();
 		gs.displayFieldOfStudy();
 		
-		System.out.println("\n===========================================");
 		
 	}
 
@@ -172,6 +171,11 @@ class Student extends Human{
 		this.fees = fees; 
 	}
 	
+	public void displayInfo() {
+		System.out.println("Student Name: " + getName());
+		System.out.println("Student Address: " + getAddress());
+		System.out.println("Student Age: " + getAge());
+	}
 	public void displayStudentRollNumber() {
         System.out.println("Roll Number: " + rollNo);
     }
@@ -240,9 +244,14 @@ class GraduateStudent extends Student{
 		this.major = major;
 	}
 	
-	 public void displayFieldOfStudy() {
-	        System.out.println("Field of Study: " + major);
-	    }
+	public void displayInfo() {
+		System.out.println("Graduate Student Name: " + getName());
+		System.out.println("Graduate Student Address: " + getAddress());
+		System.out.println("Graduate Student Age: " + getAge());
+	}
+	public void displayFieldOfStudy() {
+	    System.out.println("Field of Study: " + major);
+	}
 		
 }
 
@@ -255,7 +264,12 @@ class Teacher extends Human{
         this.subject = subject;
     }
 
+    public void displayInfo() {
+		System.out.println("Teacher Name: " + getName());
+		System.out.println("Teacher Address: " + getAddress());
+		System.out.println("Teacher Age: " + getAge());
+	}
     public void displaySubject() {
-        System.out.println(super.getName() + " teaches " + subject );
+        System.out.println(super.getName() + " teaches " + subject + " subject.");
     }
 }
