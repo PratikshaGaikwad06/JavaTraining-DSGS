@@ -65,9 +65,9 @@ class WashingMachineTest {
 			System.out.println("cloth" + ++i + " : "+   cloth);
         }
 		
-		System.out.println("================================================\n");
+	System.out.println("================================================\n");
 		
-		   // Create washing tubs with different capacities
+	// Create washing tubs with different capacities
         WashingTub tub1 = new WashingTub(50, "Front Load");
         WashingTub tub2 = new WashingTub(60, "Top Load");
         WashingTub tub3 = new WashingTub(40, "Semi-Automatic");
@@ -117,7 +117,7 @@ class WashingMachine extends Thread{
 	
 //	WashingTub washTub = new WashingTub(); //hasA
 	public WashingMachine(WashingTub washTub, WashingPowder washPowder, Water water, Electricity electricity, Cloth[] clothes){
-		super();
+	super();
         this.washTub = washTub;
         this.washPowder = washPowder;
         this.water = water;
