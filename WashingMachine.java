@@ -65,9 +65,9 @@ class WashingMachineTest {
 			System.out.println("cloth" + ++i + " : "+   cloth);
         }
 		
-	System.out.println("================================================\n");
+		System.out.println("================================================\n");
 		
-	// Create washing tubs with different capacities
+		   // Create washing tubs with different capacities
         WashingTub tub1 = new WashingTub(50, "Front Load");
         WashingTub tub2 = new WashingTub(60, "Top Load");
         WashingTub tub3 = new WashingTub(40, "Semi-Automatic");
@@ -117,7 +117,7 @@ class WashingMachine extends Thread{
 	
 //	WashingTub washTub = new WashingTub(); //hasA
 	public WashingMachine(WashingTub washTub, WashingPowder washPowder, Water water, Electricity electricity, Cloth[] clothes){
-	super();
+		super();
         this.washTub = washTub;
         this.washPowder = washPowder;
         this.water = water;
@@ -200,7 +200,9 @@ class WashingMachine extends Thread{
 	            Thread.sleep(2000);
 
 	            // Simulate thermostat failure
-	            if (new Random().nextBoolean()) {
+	            String numericPart = water.getTemperature().replaceAll("[^0-9]", "");
+	            int temperature = Integer.parseInt(numericPart);// Convert the extracted string to an integer
+	            if (temperature > 30) {
 	                throw new ThermostatFailureException("Thermostat failure. Water temperature too high.");
 	            }
 	            
