@@ -106,7 +106,7 @@ class WashingMachineTest {
 }
 
 
-class WashingMachine extends Thread{ 
+class WashingMachine implements Runnable{ 
 	private WashingTub washTub;
 	private WashingPowder washPowder;
 	private Water water;
