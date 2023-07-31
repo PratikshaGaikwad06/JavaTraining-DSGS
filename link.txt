@@ -2,4 +2,3 @@ https://github.com/vishhaldawan
 https://github.com/vishhaldawane/JavaMay29-2023/blob/main/InterThreadCommunicationTest.java
 https://www.javatpoint.com/difference-between-stringbuffer-and-stringbuilder
 https://www.geeksforgeeks.org/difference-between-stringbuffer-and-stringbuilder-in-java/
-https://dsext001-eu1-215dsi0708-3dswym.3dexperience.3ds.com/#community:1588
