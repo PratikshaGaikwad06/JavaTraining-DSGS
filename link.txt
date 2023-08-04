@@ -6,3 +6,4 @@ https://copyassignment.com/bank-management-system-project-in-java/
 https://github.com/anubhavshrimal/BankManagementSystem/blob/master/src/LoginSignup_SecondFrame.java
 https://vuejs.org/guide/extras/reactivity-in-depth.html
 https://vuejs.org/guide/extras/rendering-mechanism.html
+https://raybo.org/slides_vue3/#/
